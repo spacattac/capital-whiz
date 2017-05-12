@@ -1,2 +1,2 @@
-ReciteCapitalsIntent recite all state capitals
+ReciteCapitalsIntent recite
 AMAZON.HelpIntent what can I do
