@@ -1,3 +1,4 @@
-ReciteCapitalsIntent recite
-GiveCapitalIntent what is the capital of {State}
+ReciteCapitalsIntent recite all
+GiveCapitalIntent do {State}
 AMAZON.HelpIntent what can I do
+AMAZON.HelpIntent help me
