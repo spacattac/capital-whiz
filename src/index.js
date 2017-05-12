@@ -243,6 +243,11 @@ var handlers = {
 
         this.emit(':tellWithCard', speechOutput, SKILL_NAME, cardOutput);
     },
+    'GiveCapitalIntent': function () {
+        stateFilter = this.event.request.intent.slots.State.value;
+        var capital = states.find(findState).capital;
+        this.emit(':tell', capital + ", " + stateFilter);
+    },
     'AMAZON.HelpIntent': function () {
         var speechOutput = HELP_MESSAGE;
         var reprompt = HELP_REPROMPT;

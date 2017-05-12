@@ -1,2 +1,3 @@
 ReciteCapitalsIntent recite
+GiveCapitalIntent what is the capital of {State}
 AMAZON.HelpIntent what can I do
