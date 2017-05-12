@@ -229,7 +229,7 @@ exports.handler = function(event, context, callback) {
 
 var handlers = {
     'LaunchRequest': function () {
-        this.emit(':tell', WELCOME_MESSAGE);
+        this.emit(':ask', WELCOME_MESSAGE, HELP_REPROMPT);
     },
     'ReciteCapitalsIntent': function () {
         recitals = [];
@@ -241,12 +241,12 @@ var handlers = {
         states.forEach(cardDisplayState);
         var cardOutput = cardText.join("\r\n");
 
-        this.emit(':tellWithCard', speechOutput, SKILL_NAME, cardOutput);
+        this.emit(':askWithCard', speechOutput, HELP_REPROMPT, SKILL_NAME, cardOutput);
     },
     'GiveCapitalIntent': function () {
         stateFilter = this.event.request.intent.slots.State.value;
         var capital = states.find(findState).capital;
-        this.emit(':tell', capital + ", " + stateFilter);
+        this.emit(':ask', capital + ", " + stateFilter, HELP_REPROMPT);
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = HELP_MESSAGE;
