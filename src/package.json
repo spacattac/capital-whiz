@@ -1,0 +1,7 @@
+{
+  "name": "capital-whiz",
+  "version": "0.1.0",
+  "dependencies": {
+    "alexa-sdk": "^1.0.9"
+  }
+}
