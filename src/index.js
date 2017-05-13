@@ -7,10 +7,10 @@ var APP_ID = undefined;
 
 var SKILL_NAME = "Capital Whiz";
 var GET_FACT_MESSAGE = "The state capital of ";
-var WELCOME_MESSAGE = "Welcome to Capital Whiz.  I can recite all 50 state capitals.";//  I can give the capital if you give me the state.  And, I can quiz your capital knowledge.  What would you like to do?";
+var WELCOME_MESSAGE = "Welcome to Capital Whiz.  I can recite all 50 state capitals, give the capital for a state of your choice, or give you a quiz.";//  I can give the capital if you give me the state.  And, I can quiz your capital knowledge.  What would you like to do?";
 var HELP_MESSAGE = "As an example, you can say what is the capital of Hawaii.";
-var HELP_REPROMPT = "What can I help you with?";
-var CANCEL_MESSAGE = "Sure."
+var HELP_REPROMPT = "I'll wait for your command.";
+var CANCEL_MESSAGE = "Sure.  You're in control."
 var STOP_MESSAGE = "Goodbye!";
 
 var stateFilter = undefined;
