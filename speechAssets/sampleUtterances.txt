@@ -5,5 +5,9 @@ GiveCapitalIntent do {State}
 GiveCapitalIntent what about {State}
 GiveCapitalIntent how about {State}
 GiveCapitalIntent and {State}
+QuizIntent quiz me
+QuizAnswerIntent {Capital}
+QuizAnswerIntent is it {Capital}
+QuizAnswerIntent it is {Capital}
 AMAZON.HelpIntent what can I do
 AMAZON.HelpIntent help me

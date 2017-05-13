@@ -13,6 +13,18 @@
       ]      
     },
     {
+      "intent": "QuizIntent"
+    },
+    {
+      "intent": "QuizAnswerIntent",
+      "slots": [
+        {
+          "name": "Capital",
+          "type": "LIST_OF_CAPITALS"
+        }
+      ]
+    },
+    {
       "intent": "AMAZON.CancelIntent"
     },
     {

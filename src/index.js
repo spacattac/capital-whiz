@@ -246,7 +246,25 @@ var handlers = {
     'GiveCapitalIntent': function () {
         stateFilter = this.event.request.intent.slots.State.value;
         var capital = states.find(findState).capital;
-        this.emit(':ask', capital + ", " + stateFilter, HELP_REPROMPT);
+        this.emit(':ask', capital + ', ' + stateFilter, HELP_REPROMPT);
+    },
+    'QuizIntent': function () {
+        var state = nextState().name;
+        Object.assign(this.attributes, { 'lastState' : state })
+        var question = 'what is the capital of ' + state;
+        this.emit(':ask', question, question);
+    },
+    'QuizAnswerIntent': function () {
+        var answer = this.event.request.intent.slots.Capital.value;
+
+        var result = 'wrong';
+        if(answer === this.attributes['lastState'])
+            result = 'correct';
+
+        var state = nextState().name;
+        var question = 'what is the capital of ' + state;
+
+        this.emit(':ask', result, question);
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = HELP_MESSAGE;
@@ -271,4 +289,8 @@ function reciteState(state) {
 
 function cardDisplayState(state) {
     cardText.push(state.capital + ', ' + state.name);
+}
+
+function nextState() {
+    return states[Math.floor(Math.random() * states.length)];
 }
