@@ -14,6 +14,7 @@ var CANCEL_MESSAGE = "Sure.  You're in control."
 var STOP_MESSAGE = "Goodbye!";
 
 var stateFilter = undefined;
+var capitalFilter = undefined;
 var recitals = [];
 var cardText = [];
 
@@ -152,7 +153,7 @@ var states = [
     },
     { 
         "name": "North Dakota",
-        "capital": "Bismark"
+        "capital": "Bismarck"
     }, 
     { 
         "name": "Ohio",
@@ -250,18 +251,20 @@ var handlers = {
     },
     'QuizIntent': function () {
         var state = nextState().name;
-        Object.assign(this.attributes, { 'lastState' : state })
+        this.attributes['lastState'] = state;
         var question = 'what is the capital of ' + state;
         this.emit(':ask', question, question);
     },
     'QuizAnswerIntent': function () {
-        var answer = this.event.request.intent.slots.Capital.value;
-
+        capitalFilter = this.event.request.intent.slots.Capital.value;
+        var state = states.find(findStateByCapital);
+        
         var result = 'wrong';
-        if(answer === this.attributes['lastState'])
+        if(state !== undefined && state.name === this.attributes['lastState'])
             result = 'correct';
 
-        var state = nextState().name;
+        state = nextState().name;
+        this.attributes['lastState'] = state;
         var question = 'what is the capital of ' + state;
 
         this.emit(':ask', result, question);
@@ -281,6 +284,10 @@ var handlers = {
 
 function findState(state) { 
     return state.name === stateFilter;
+}
+
+function findStateByCapital(state) { 
+    return state.capital === capitalFilter;
 }
 
 function reciteState(state) {

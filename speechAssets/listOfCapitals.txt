@@ -1,39 +1,39 @@
 Montgomery
-Juneau 
-Phoenix 
-Little Rock 
-Sacramento 
-Denver 
-Hartford 
-Dover 
+Juneau
+Phoenix
+Little-Rock
+Sacramento
+Denver
+Hartford
+Dover
 Tallahassee 
 Atlanta 
 Honolulu 
-Bloise 
+Boise 
 Springfield
 Indianapolis 
-Des Moinses 
+Des-Moines 
 Topeka 
 Frankfort 
-Baton Rouge 
+Baton-Rouge 
 Augusta 
-Anapolis 
+Annapolis 
 Boston 
 Lansing 
-Saint Paul 
+Saint-Paul 
 Jackson 
-Jefferson City 
+Jefferson-City 
 Helena
-Lincoln 
-Carson City 
+Lincoln
+Carson-City
 Concord 
 Trenton 
 Santa Fe 
 Albany 
 Raleight 
-Bismark 
+Bismarck 
 Columbus 
-Oklahoma City 
+Oklahoma-City 
 Salem 
 Harrisburg
 Providence 
@@ -41,7 +41,7 @@ Columbia
 Pierre 
 Nashville 
 Austin 
-Salt Lake City 
+Salt-Lake-City 
 Montpelier 
 Richmond 
 Olypmia 
