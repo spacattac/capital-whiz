@@ -1,6 +1,16 @@
 {
-  "intents": [    {
+  "intents": [    
+    {
       "intent": "ReciteCapitalsIntent"
+    },
+    {
+      "intent": "GiveCapitalIntent",
+      "slots": [
+        {
+          "name": "State",
+          "type": "LIST_OF_STATES"
+        }
+      ]      
     },
     {
       "intent": "AMAZON.CancelIntent"
