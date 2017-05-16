@@ -256,18 +256,42 @@ var handlers = {
         this.emit(':ask', question, question);
     },
     'QuizAnswerIntent': function () {
-        capitalFilter = this.event.request.intent.slots.Capital.value;
-        var state = states.find(findStateByCapital);
-        
-        var result = 'wrong';
-        if(state !== undefined && state.name === this.attributes['lastState'])
-            result = 'correct';
 
+        var cardText = [];
+
+        // get and compare answer
+        var expectedState = this.attributes['lastState'];
+        console.log('alexa asked for capital of: ' + expectedState);
+        cardText.push('I asked you for the capital of ' + expectedState);
+
+        capitalFilter = this.event.request.intent.slots.Capital.value;
+        console.log('user answered: ' + capitalFilter);
+        cardText.push('You answered ' + capitalFilter);
+
+        var result = 'wrong';
+        var state = states.find(findStateByCapital);        
+        if(state === undefined) {
+            console.log('state lookup: ' + state);
+            cardText.push('Your capital answer equates to ' + state + ' state')
+        }        
+        else if(state.name !== expectedState) {
+            console.log('state lookup: ' + state.name);
+            cardText.push('Your capital answer equates to ' + state.name + ' state')
+        }
+        else {
+            result = 'correct';
+        }
+
+        console.log('answer is: ' + result);
+        cardText.push('You answer is ' + result + '.');
+
+        // pick next state and ask next question    
         state = nextState().name;
         this.attributes['lastState'] = state;
         var question = 'what is the capital of ' + state;
 
-        this.emit(':ask', result, question);
+        var cardOutput = cardText.join('.\r\n');
+        this.emit(':askWithCard', result, question, SKILL_NAME, cardOutput);
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = HELP_MESSAGE;
