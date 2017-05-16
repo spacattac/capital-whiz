@@ -274,7 +274,7 @@ var handlers = {
             console.log('state lookup: ' + state);
             cardText.push('Your capital answer equates to ' + state + ' state')
         }        
-        else if(state.name !== expectedState) {
+        else if(state.name.toLowerCase() !== expectedState.toLowerCase()) {
             console.log('state lookup: ' + state.name);
             cardText.push('Your capital answer equates to ' + state.name + ' state')
         }
@@ -311,7 +311,7 @@ function findState(state) {
 }
 
 function findStateByCapital(state) { 
-    return state.capital === capitalFilter;
+    return state.capital.toLowerCase() === capitalFilter.toLowerCase();
 }
 
 function reciteState(state) {
