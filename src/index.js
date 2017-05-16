@@ -285,10 +285,16 @@ var handlers = {
         console.log('answer is: ' + result);
         cardText.push('You answer is ' + result + '.');
 
-        // pick next state and ask next question    
-        state = nextState().name;
-        this.attributes['lastState'] = state;
-        var question = 'what is the capital of ' + state;
+        if (result == 'correct') {
+            // pick next state and ask next question    
+            state = nextState().name;
+            this.attributes['lastState'] = state;
+            var question = 'what is the capital of ' + state;
+        }
+        else {
+            // pick next state and ask next question    
+            var question = 'try again, what is the capital of ' + expectedState;
+        }
 
         var cardOutput = cardText.join('.\r\n');
         this.emit(':askWithCard', result, question, SKILL_NAME, cardOutput);
