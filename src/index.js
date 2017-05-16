@@ -283,7 +283,7 @@ var handlers = {
         }
 
         console.log('answer is: ' + result);
-        cardText.push('You answer is ' + result + '.');
+        cardText.push('Your answer is ' + result + '.');
 
         if (result == 'correct') {
             // pick next state and ask next question    
