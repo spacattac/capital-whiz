@@ -1,4 +1,5 @@
 ReciteCapitalsIntent recite all
+ReciteCapitalsIntent recite the capitals
 GiveCapitalIntent what is the captial of {State}
 GiveCapitalIntent what is the state captial of {State}
 GiveCapitalIntent do {State}
